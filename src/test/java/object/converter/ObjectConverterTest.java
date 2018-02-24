@@ -15,10 +15,14 @@ public class ObjectConverterTest {
 
         final String name = "fotis";
         final String email = "tsak@dsd.com";
+        final String desc = "Metallica";
+        final Integer status = 999;
 
         WsdlObj wsdlObj = new WsdlObj();
         wsdlObj.setName(name);
+        wsdlObj.setDescription(desc);
         wsdlObj.setEmail(email);
+        wsdlObj.setState(status);
 
         //set tree
         WsdlObj tree = new WsdlObj();
@@ -53,6 +57,8 @@ public class ObjectConverterTest {
 
         Assert.assertEquals(name, businessObj.getName());
         Assert.assertEquals(email, businessObj.getEmail());
+        Assert.assertEquals(desc, businessObj.getDesc());
+        Assert.assertEquals(status, businessObj.getStatus());
 
         Assert.assertEquals(name, businessObj.getTree().getName());
         Assert.assertEquals(email, businessObj.getTree().getEmail());

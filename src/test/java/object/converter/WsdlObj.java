@@ -3,7 +3,6 @@ package object.converter;
 import java.util.List;
 import java.util.Set;
 
-@ObjectConverter(to = BusinessObj.class)
 public class WsdlObj implements IObjectConverter<BusinessObj> {
 
     @Override
@@ -14,6 +13,11 @@ public class WsdlObj implements IObjectConverter<BusinessObj> {
     private String name;
 
     private String email;
+
+    @ObjectConverter(mapped = "desc")
+    private String description;
+
+    private Integer state;
 
     private WsdlObj tree;
 
@@ -37,6 +41,22 @@ public class WsdlObj implements IObjectConverter<BusinessObj> {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
     }
 
     public WsdlObj getTree() {
@@ -81,6 +101,8 @@ public class WsdlObj implements IObjectConverter<BusinessObj> {
         return "Obj{" +
                 "name='" + name + '\'' +
                 ", email='" + email + '\'' +
+                ", desc='" + description + '\'' +
+                ", state='" + state + '\'' +
                 ", tree=" + tree +
                 '}';
     }

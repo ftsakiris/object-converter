@@ -8,6 +8,11 @@ public class BusinessObj {
     private final String name;
     private String email;
     private final BusinessObj tree;
+    private String desc;
+
+    @ObjectConverter(mapped = "state")
+    private Integer status;
+
     private List<String> list;
     private Set<String> set;
     private List<BusinessObj> objList;
@@ -41,6 +46,14 @@ public class BusinessObj {
         return email;
     }
 
+    public String getDesc() {
+        return desc;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
     public BusinessObj getTree() {
         return tree;
     }
@@ -55,6 +68,8 @@ public class BusinessObj {
         return "Obj{" +
                 "name='" + name + '\'' +
                 ", email='" + email + '\'' +
+                ", desc='" + desc + '\'' +
+                ", state='" + status + '\'' +
                 ", tree=" + tree +
                 '}';
     }
