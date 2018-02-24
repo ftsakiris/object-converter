@@ -1,0 +1,55 @@
+import org.junit.Assert;
+import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class ObjectConverterTest {
+
+    @Test
+    public void convert() {
+
+        final String name = "fotis";
+        final String email = "tsak@dsd.com";
+
+        WsdlObj wsdlObj = new WsdlObj();
+        wsdlObj.setName(name);
+        wsdlObj.setEmail(email);
+
+        //set tree
+        WsdlObj tree = new WsdlObj();
+        tree.setName(name);
+        tree.setEmail(email);
+        wsdlObj.setTree(tree);
+
+        //set list
+        List<String> list = new ArrayList<>();
+        list.add("aei na doume");
+        list.add("noubas");
+        list.add("pws tous");
+        wsdlObj.setList(list);
+
+        //set list
+        Set<String> set = new HashSet<>();
+        set.add("aei na doume");
+        set.add("noubas");
+        set.add("pws tous");
+        wsdlObj.setSet(set);
+
+        BusinessObj businessObj = wsdlObj.convertTo();
+
+        Assert.assertEquals(name, businessObj.getName());
+        Assert.assertEquals(email, businessObj.getEmail());
+
+        Assert.assertEquals(name, businessObj.getTree().getName());
+        Assert.assertEquals(email, businessObj.getTree().getEmail());
+
+        Assert.assertTrue(list.containsAll(businessObj.getList()));
+        Assert.assertTrue(businessObj.getList().containsAll(list));
+
+        Assert.assertTrue(set.containsAll(businessObj.getSet()));
+        Assert.assertTrue(businessObj.getSet().containsAll(set));
+    }
+}
