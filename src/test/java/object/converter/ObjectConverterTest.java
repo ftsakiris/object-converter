@@ -55,6 +55,7 @@ public class ObjectConverterTest {
 
         BusinessObj businessObj = Converter.convert(wsdlObj, new BusinessObj());
 
+        // convert to BusinessObj
         Assert.assertEquals(name, businessObj.getName());
         Assert.assertEquals(email, businessObj.getEmail());
         Assert.assertEquals(desc, businessObj.getDesc());
@@ -71,5 +72,25 @@ public class ObjectConverterTest {
 
         Assert.assertTrue(WsdlObjList.containsAll(businessObj.getObjList()));
         Assert.assertTrue(businessObj.getObjList().containsAll(WsdlObjList));
+
+        WsdlObj wsdlObjConverted = Converter.convert(businessObj, new WsdlObj());
+
+        // convert to BusinessObj
+        Assert.assertEquals(name, wsdlObjConverted.getName());
+        Assert.assertEquals(email, wsdlObjConverted.getEmail());
+        Assert.assertEquals(desc, wsdlObjConverted.getDescription());
+        Assert.assertEquals(status, wsdlObjConverted.getState());
+
+        Assert.assertEquals(name, wsdlObjConverted.getTree().getName());
+        Assert.assertEquals(email, wsdlObjConverted.getTree().getEmail());
+
+        Assert.assertTrue(list.containsAll(wsdlObjConverted.getList()));
+        Assert.assertTrue(wsdlObjConverted.getList().containsAll(list));
+
+        Assert.assertTrue(set.containsAll(wsdlObjConverted.getSet()));
+        Assert.assertTrue(wsdlObjConverted.getSet().containsAll(set));
+
+        Assert.assertTrue(WsdlObjList.containsAll(wsdlObjConverted.getObjList()));
+        Assert.assertTrue(wsdlObjConverted.getObjList().containsAll(WsdlObjList));
     }
 }
