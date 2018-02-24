@@ -1,3 +1,5 @@
+import object.converter.Converter;
+
 public interface IObjectConverter<TO> {
 
     Class<TO> getToClass();
