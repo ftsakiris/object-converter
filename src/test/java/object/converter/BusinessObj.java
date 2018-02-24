@@ -1,3 +1,5 @@
+package object.converter;
+
 import java.util.List;
 import java.util.Set;
 
@@ -8,6 +10,7 @@ public class BusinessObj {
     private final BusinessObj tree;
     private List<String> list;
     private Set<String> set;
+    private List<BusinessObj> objList;
 
     public BusinessObj() {
         this(null, null);
@@ -26,6 +29,10 @@ public class BusinessObj {
         return list;
     }
 
+    public List<BusinessObj> getObjList() {
+        return objList;
+    }
+
     public String getName() {
         return name;
     }
@@ -36,5 +43,19 @@ public class BusinessObj {
 
     public BusinessObj getTree() {
         return tree;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        return this == o || this.toString().equals(o.toString());
+    }
+
+    @Override
+    public String toString() {
+        return "Obj{" +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", tree=" + tree +
+                '}';
     }
 }

@@ -1,3 +1,5 @@
+package object.converter;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -38,6 +40,15 @@ public class ObjectConverterTest {
         set.add("pws tous");
         wsdlObj.setSet(set);
 
+        //set list
+        List<WsdlObj> WsdlObjList = new ArrayList<>();
+        WsdlObj wsdlObjL = new WsdlObj();
+        wsdlObjL.setName(name);
+        wsdlObjL.setEmail(email);
+        WsdlObjList.add(wsdlObjL);
+        WsdlObjList.add(wsdlObjL);
+        wsdlObj.setObjList(WsdlObjList);
+
         BusinessObj businessObj = wsdlObj.convertTo();
 
         Assert.assertEquals(name, businessObj.getName());
@@ -51,5 +62,8 @@ public class ObjectConverterTest {
 
         Assert.assertTrue(set.containsAll(businessObj.getSet()));
         Assert.assertTrue(businessObj.getSet().containsAll(set));
+
+        Assert.assertTrue(WsdlObjList.containsAll(businessObj.getObjList()));
+        Assert.assertTrue(businessObj.getObjList().containsAll(WsdlObjList));
     }
 }

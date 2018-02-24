@@ -1,3 +1,5 @@
+package object.converter;
+
 import java.util.List;
 import java.util.Set;
 
@@ -19,20 +21,22 @@ public class WsdlObj implements IObjectConverter<BusinessObj> {
 
     private Set<String> set;
 
-    public Set<String> getSet() {
-        return set;
+    private List<WsdlObj> objList;
+
+    public String getName() {
+        return name;
     }
 
-    public void setSet(Set<String> set) {
-        this.set = set;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public List<String> getList() {
-        return list;
+    public String getEmail() {
+        return email;
     }
 
-    public void setList(List<String> list) {
-        this.list = list;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public WsdlObj getTree() {
@@ -43,20 +47,42 @@ public class WsdlObj implements IObjectConverter<BusinessObj> {
         this.tree = tree;
     }
 
-    public String getName() {
-        return name;
+    public List<String> getList() {
+        return list;
     }
 
-    public String getEmail() {
-        return email;
+    public void setList(List<String> list) {
+        this.list = list;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public Set<String> getSet() {
+        return set;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setSet(Set<String> set) {
+        this.set = set;
+    }
+
+    public List<WsdlObj> getObjList() {
+        return objList;
+    }
+
+    public void setObjList(List<WsdlObj> objList) {
+        this.objList = objList;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        return this == o || this.toString().equals(o.toString());
+    }
+
+    @Override
+    public String toString() {
+        return "Obj{" +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", tree=" + tree +
+                '}';
     }
 }
 

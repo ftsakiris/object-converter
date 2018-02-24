@@ -1,4 +1,4 @@
-import object.converter.Converter;
+package object.converter;
 
 public interface IObjectConverter<TO> {
 
