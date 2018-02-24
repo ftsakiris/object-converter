@@ -3,12 +3,7 @@ package object.converter;
 import java.util.List;
 import java.util.Set;
 
-public class WsdlObj implements IObjectConverter<BusinessObj> {
-
-    @Override
-    public Class<BusinessObj> getToClass() {
-        return BusinessObj.class;
-    }
+public class WsdlObj {
 
     private String name;
 

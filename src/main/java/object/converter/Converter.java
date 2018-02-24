@@ -15,7 +15,7 @@ public class Converter {
     private Converter() {
     }
 
-    public static Object convert(Object from, Object to) {
+    public static <T> T convert(Object from, T to) {
         for (Field fromField : from.getClass().getDeclaredFields()) {
             fromField.setAccessible(true);
             System.out.println(fromField.toString());

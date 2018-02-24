@@ -53,7 +53,7 @@ public class ObjectConverterTest {
         WsdlObjList.add(wsdlObjL);
         wsdlObj.setObjList(WsdlObjList);
 
-        BusinessObj businessObj = wsdlObj.convertTo();
+        BusinessObj businessObj = Converter.convert(wsdlObj, new BusinessObj());
 
         Assert.assertEquals(name, businessObj.getName());
         Assert.assertEquals(email, businessObj.getEmail());
